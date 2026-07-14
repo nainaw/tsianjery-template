@@ -13,11 +13,7 @@ jobs:
 
     steps:
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Run Scribe
 
-      - name: Say hello
         run: |
-          echo "===================================="
-          echo " Hello from Tsianjery Publishing System"
-          echo "===================================="
+          ruby tools/scribe.rb TelovolanaII.tsm
