@@ -42,12 +42,30 @@ puts
 
 lesson_blocks.each_with_index do |lesson, index|
 
+  paragraphs = lesson.strip.split(/\n\s*\n/)
+
+  title = paragraphs.first
+
+  reference = paragraphs.last
+
+  verse = paragraphs[1...-1].join("\n\n")
+
   puts "========== Lesson #{index + 1} =========="
 
   puts
 
-  puts lesson.strip
+  puts "Title:"
+  puts title
 
   puts
 
+  puts "Verse:"
+  puts verse
+
+  puts
+
+  puts "Reference:"
+  puts reference
+
+  puts
 end
