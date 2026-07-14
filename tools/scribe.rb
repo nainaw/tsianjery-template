@@ -13,10 +13,26 @@ end
 
 filename = ARGV[0]
 
-puts
-puts "Reading: #{filename}"
-puts
-
 text = File.read(filename)
 
-puts text
+parts = text.split(/^=+$/)
+
+if parts.length != 2
+  puts
+  puts "ERROR:"
+  puts "The manuscript must contain exactly one line of '=' characters."
+  exit 1
+end
+
+header = parts[0].strip
+lessons = parts[1].strip
+
+puts
+puts "===== QUARTER HEADER ====="
+puts
+puts header
+
+puts
+puts "===== LESSONS ====="
+puts
+puts lessons
