@@ -1,9 +1,19 @@
 # Tsianjery Publishing System History
 
-## TPS 0.1
+This file records the evolution of the Tsianjery Publishing System (TPS).
 
-Date: July 2026
+---
+
+## TPS 0.1 – GitHub Automation
+
+**Date:** July 2026
+
+### Achievement
 
 The first GitHub Actions workflow was created successfully.
 
-GitHub can now execute automated tasks whenever the repository changes.
+GitHub now automatically executes a workflow whenever changes are pushed to the repository.
+
+### Result
+
+The Tsianjery Publishing System is no longer a collection of files. It has become an automated publishing project.
