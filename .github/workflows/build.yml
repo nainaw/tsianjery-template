@@ -16,4 +16,4 @@ jobs:
       - name: Run Scribe
 
         run: |
-          ruby tools/scribe.rb TelovolanaII.tsm
+            ruby tools/scribe.rb TelovolanaII.tsm
