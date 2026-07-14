@@ -33,6 +33,21 @@ puts
 puts header
 
 puts
-puts "===== LESSONS ====="
+
+lesson_blocks = lessons.split(/^-+$/)
+
+puts "Number of lessons: #{lesson_blocks.length}"
+
 puts
-puts lessons
+
+lesson_blocks.each_with_index do |lesson, index|
+
+  puts "========== Lesson #{index + 1} =========="
+
+  puts
+
+  puts lesson.strip
+
+  puts
+
+end
