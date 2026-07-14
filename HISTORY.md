@@ -31,3 +31,18 @@ For the first time, the Tsianjery Publishing System automatically read a `.tsm` 
 ### Result
 
 The TSM language now has its first working interpreter.
+
+## TPS 0.3 – Quarter Recognition
+
+**Date:** July 2026
+
+### Achievement
+
+Scribe successfully recognized the two main sections of a TSM document.
+
+- Quarter Header
+- Lessons
+
+### Result
+
+Scribe now understands the overall structure of a TSM manuscript.
