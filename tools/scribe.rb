@@ -3,5 +3,20 @@
 puts "===================================="
 puts " Scribe"
 puts " Tsianjery Publishing System"
-puts " Version 1.0"
 puts "===================================="
+
+if ARGV.empty?
+  puts
+  puts "No TSM file specified."
+  exit
+end
+
+filename = ARGV[0]
+
+puts
+puts "Reading: #{filename}"
+puts
+
+text = File.read(filename)
+
+puts text
