@@ -23,5 +23,17 @@ class Quarter
   @lessons.length
     
   end
+
+  def to_s
+
+  <<~TEXT
+  Quarter
+  -------
+  Title    : #{@title}
+  Subtitle : #{@subtitle}
+  Lessons  : #{lesson_count}
+  TEXT
+
+end
   
 end
