@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative "../lib/lesson"
+require_relative "../lib/quarter"
+
 puts "===================================="
 puts " Scribe"
 puts " Tsianjery Publishing System"
