@@ -27,7 +27,13 @@ if parts.length != 2
   exit 1
 end
 
+# ------------------------------------
+# Quarter
+# ------------------------------------
+
 header = parts[0].strip
+lessons = parts[1].strip
+
 header_lines = header.lines.map(&:strip).reject(&:empty?)
 
 quarter_title = header_lines[0]
@@ -37,55 +43,65 @@ quarter = Quarter.new(
   quarter_title,
   quarter_subtitle
 )
+
 puts
 puts "===== QUARTER HEADER ====="
 puts
 puts header
-
 puts
+
+# ------------------------------------
+# Lessons
+# ------------------------------------
 
 lesson_blocks = lessons.split(/^-+$/)
 
 puts "Number of lessons: #{lesson_blocks.length}"
-
 puts
 
-lesson_blocks.each_with_index do |lesson, index|
+lesson_blocks.each_with_index do |lesson_text, index|
 
-  paragraphs = lesson.strip.split(/\n\s*\n/)
+  paragraphs = lesson_text.strip.split(/\n\s*\n/)
 
- lesson = Lesson.new(
-  title,
-  verse,
-  reference
-)
+  title = paragraphs.first
+  reference = paragraphs.last
+  verse = paragraphs[1...-1].join("\n\n")
 
-quarter.add_lesson(lesson)
+  lesson = Lesson.new(
+    title,
+    verse,
+    reference
+  )
+
+  quarter.add_lesson(lesson)
 
   puts "========== Lesson #{index + 1} =========="
-
   puts
 
   puts "Title:"
-  puts title
-
+  puts lesson.title
   puts
 
   puts "Verse:"
-  puts verse
-
+  puts lesson.verse
   puts
 
   puts "Reference:"
-  puts reference
-
+  puts lesson.reference
   puts
+
 end
+
+# ------------------------------------
+# Summary
+# ------------------------------------
+
 puts
 puts "=================================="
 puts "Quarter Summary"
 puts "=================================="
+puts
 
-puts "Title      : #{quarter.title}"
-puts "Subtitle   : #{quarter.subtitle}"
-puts "Lessons    : #{quarter.lessons.length}"
+puts "Title    : #{quarter.title}"
+puts "Subtitle : #{quarter.subtitle}"
+puts "Lessons  : #{quarter.lessons.length}"
