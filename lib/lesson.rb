@@ -12,4 +12,10 @@ class Lesson
 
   end
 
+def to_s
+  
+  "#{@title} (#{@reference})"
+  
+end
+  
 end
