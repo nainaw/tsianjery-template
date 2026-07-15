@@ -2,6 +2,7 @@
 
 require_relative "../lib/lesson"
 require_relative "../lib/quarter"
+require_relative "../lib/parser"
 
 puts "===================================="
 puts " Scribe"
