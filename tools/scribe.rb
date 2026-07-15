@@ -28,8 +28,15 @@ if parts.length != 2
 end
 
 header = parts[0].strip
-lessons = parts[1].strip
+header_lines = header.lines.map(&:strip).reject(&:empty?)
 
+quarter_title = header_lines[0]
+quarter_subtitle = header_lines[1]
+
+quarter = Quarter.new(
+  quarter_title,
+  quarter_subtitle
+)
 puts
 puts "===== QUARTER HEADER ====="
 puts
