@@ -81,3 +81,11 @@ quarter.add_lesson(lesson)
 
   puts
 end
+puts
+puts "=================================="
+puts "Quarter Summary"
+puts "=================================="
+
+puts "Title      : #{quarter.title}"
+puts "Subtitle   : #{quarter.subtitle}"
+puts "Lessons    : #{quarter.lessons.length}"
