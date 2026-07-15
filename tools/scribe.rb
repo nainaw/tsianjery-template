@@ -54,11 +54,13 @@ lesson_blocks.each_with_index do |lesson, index|
 
   paragraphs = lesson.strip.split(/\n\s*\n/)
 
-  title = paragraphs.first
+ lesson = Lesson.new(
+  title,
+  verse,
+  reference
+)
 
-  reference = paragraphs.last
-
-  verse = paragraphs[1...-1].join("\n\n")
+quarter.add_lesson(lesson)
 
   puts "========== Lesson #{index + 1} =========="
 
