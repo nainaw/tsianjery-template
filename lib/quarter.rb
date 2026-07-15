@@ -17,5 +17,11 @@ class Quarter
     @lessons << lesson
 
   end
-
+  
+  def lesson_count
+    
+  @lessons.length
+    
+  end
+  
 end
