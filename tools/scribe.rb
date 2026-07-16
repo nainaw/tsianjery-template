@@ -4,8 +4,6 @@ require_relative "../lib/lesson"
 require_relative "../lib/quarter"
 require_relative "../lib/parser"
 
-puts
-puts quarter
 
 if ARGV.empty?
   puts
@@ -17,6 +15,7 @@ filename = ARGV[0]
 
 text = File.read(filename)
 
-parser = Parser.new(text)
+quarter = parser.parse
 
-parser.parse
+puts
+puts quarter
