@@ -6,10 +6,15 @@ class Parser
 
   end
 
-  def parse
+ def parse
 
-    puts "Parser is working..."
+  quarter = Quarter.new(
+    "TEST QUARTER",
+    "Parser prototype"
+  )
 
-  end
+  quarter
+
+end
 
 end
