@@ -15,6 +15,8 @@ filename = ARGV[0]
 
 text = File.read(filename)
 
+parser = Parser.new(text)
+
 quarter = parser.parse
 
 puts
