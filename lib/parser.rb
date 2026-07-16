@@ -7,7 +7,6 @@ class Parser
   def parse
 
     lines = @text.lines.map(&:chomp)
-
     lines.reject! { |line| line.strip.empty? }
 
     title = lines.shift
@@ -24,10 +23,44 @@ class Parser
 
     end
 
-    Quarter.new(
+    quarter = Quarter.new(
       title,
       subtitle.join("\n")
     )
+
+    parse_lessons(lines, quarter)
+
+    quarter
+
+  end
+
+  private
+
+  def parse_lessons(lines, quarter)
+
+    lesson_lines = []
+
+    lines.each do |line|
+
+      if line.match?(/^-+$/)
+
+        quarter.add_lesson(
+          Lesson.new(
+            "Untitled",
+            "",
+            ""
+          )
+        )
+
+        lesson_lines.clear
+
+      else
+
+        lesson_lines << line
+
+      end
+
+    end
 
   end
 
