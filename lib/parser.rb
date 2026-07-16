@@ -1,20 +1,34 @@
 class Parser
 
   def initialize(text)
-
     @text = text
-
   end
 
- def parse
+  def parse
 
-  quarter = Quarter.new(
-    "TEST QUARTER",
-    "Parser prototype"
-  )
+    lines = @text.lines.map(&:chomp)
 
-  quarter
+    lines.reject! { |line| line.strip.empty? }
 
-end
+    title = lines.shift
+
+    subtitle = []
+
+    until lines.empty?
+
+      line = lines.shift
+
+      break if line.match?(/^=+$/)
+
+      subtitle << line
+
+    end
+
+    Quarter.new(
+      title,
+      subtitle.join("\n")
+    )
+
+  end
 
 end
