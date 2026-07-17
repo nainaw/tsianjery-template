@@ -8,6 +8,7 @@ require_relative "../lib/markdown_renderer"
 
 
 manuscripts = Dir.glob("manuscripts/*.tsm")
+published = 0
 manuscripts.each do |filename|
 
   text = File.read(filename)
@@ -26,6 +27,10 @@ manuscripts.each do |filename|
 
   File.write(output_file, markdown)
 
+  published += 1
+
   puts "Published #{output_file}"
 
 end
+puts
+puts "#{published} manuscript(s) published successfully."
