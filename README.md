@@ -6,14 +6,26 @@
 
 ---
 
-The Tsianjery Publishing System separates content from presentation.
+## Overview
 
-Authors write only the devotional content using the TSM language.
+The Tsianjery Publishing System (TPS) separates devotional content from its presentation.
 
-TPS automatically transforms that content into a beautifully formatted website using Jekyll and GitHub Pages.
+Authors write only the manuscript in the TSM language. TPS reads that manuscript, reconstructs its logical structure, and prepares it for publication.
 
-# Tsianjery Template
+The long-term goal is to generate beautifully formatted publications automatically using Jekyll and GitHub Pages.
 
-A publishing template for the Tsianjery annual devotional.
+## Current Features
 
-The purpose of this repository is to separate content from presentation, allowing future editions to be created by entering only the devotional content while Jekyll automatically formats and publishes the website.
+TPS currently supports:
+
+* Parsing `.tsm` manuscripts.
+* Reading quarter titles and subtitles.
+* Reconstructing `Lesson` objects.
+* Parsing lesson titles.
+* Preserving multi-line Bible verses.
+* Parsing Bible references.
+* Displaying parsed manuscripts through the `Scribe` tool.
+
+## Project Goal
+
+A single `.tsm` manuscript should become the source from which TPS can generate complete devotional publications without requiring manual formatting.

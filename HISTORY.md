@@ -46,3 +46,28 @@ Scribe successfully recognized the two main sections of a TSM document.
 ### Result
 
 Scribe now understands the overall structure of a TSM manuscript.
+
+## TPS 0.8.5 Official – Complete Manuscript Parser
+
+**Date:** July 2026
+
+### Achievement
+
+The parser now reconstructs a complete manuscript structure from a `.tsm` file.
+
+The following information is parsed successfully:
+
+* Quarter title
+* Quarter subtitle
+* Lesson titles
+* Verse text
+* Bible references
+
+Scribe displays the reconstructed `Quarter` and `Lesson` objects, allowing the parser to be verified directly from the command line.
+
+### Result
+
+The first major objective of the Tsianjery Publishing System has been achieved.
+
+TPS now transforms a plain-text manuscript into a complete in-memory object model, providing a solid foundation for future publication formats such as Markdown, HTML, and GitHub Pages.
+

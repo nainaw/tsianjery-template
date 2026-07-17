@@ -43,12 +43,14 @@ class Parser
     lines.each do |line|
 
       if line.match?(/^-+$/)
-
+        title = lesson_lines.first
+        verse = lesson_lines[1...-1].join("\n")
+        reference = lesson_lines.last
         quarter.add_lesson(
           Lesson.new(
-            "Untitled",
-            "",
-            ""
+            title,
+            verse,
+            reference
           )
         )
 
