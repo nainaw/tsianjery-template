@@ -24,9 +24,17 @@ renderer = MarkdownRenderer.new
 
 markdown = renderer.render(quarter)
 
-output_file = "output/TelovolanaII.md"
+basename = File.basename(filename, ".tsm")
+
+output_file = "output/#{basename}.md"
 
 File.write(output_file, markdown)
 
 puts
-puts "Markdown written to #{output_file}"
+puts "TPS Publishing Report"
+puts "---------------------"
+puts "Source   : #{filename}"
+puts "Lessons  : #{quarter.lesson_count}"
+puts "Output   : #{output_file}"
+puts
+puts "Publishing completed successfully."
