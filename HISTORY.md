@@ -81,3 +81,24 @@ This release introduces an entirely new capability:
 
 TPS no longer only parses manuscripts.
 TPS now publishes them as Markdown.
+## TPS 0.10 – Multi-manuscript Publishing
+
+### Achievement
+
+Scribe can now automatically discover and publish all `.tsm` manuscripts located in the manuscripts directory.
+
+### Result
+
+A single command can now generate multiple Markdown publications.
+
+Example:
+
+manuscripts/
+- 2026-Q1.tsm
+- 2026-Q2.tsm
+
+produces:
+
+output/
+- 2026-Q1.md
+- 2026-Q2.md
