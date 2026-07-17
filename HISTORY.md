@@ -71,3 +71,13 @@ The first major objective of the Tsianjery Publishing System has been achieved.
 
 TPS now transforms a plain-text manuscript into a complete in-memory object model, providing a solid foundation for future publication formats such as Markdown, HTML, and GitHub Pages.
 
+## TPS 0.9.0 Official
+
+Why 0.9.0 instead of 0.9.3?
+
+Because what we've achieved is larger than a small incremental change.
+
+This release introduces an entirely new capability:
+
+TPS no longer only parses manuscripts.
+TPS now publishes them as Markdown.

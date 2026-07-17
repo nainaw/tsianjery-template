@@ -3,6 +3,7 @@
 require_relative "../lib/lesson"
 require_relative "../lib/quarter"
 require_relative "../lib/parser"
+require_relative "../lib/markdown_renderer"
 
 
 if ARGV.empty?
@@ -19,5 +20,13 @@ parser = Parser.new(text)
 
 quarter = parser.parse
 
+renderer = MarkdownRenderer.new
+
+markdown = renderer.render(quarter)
+
+output_file = "output/TelovolanaII.md"
+
+File.write(output_file, markdown)
+
 puts
-puts quarter
+puts "Markdown written to #{output_file}"
