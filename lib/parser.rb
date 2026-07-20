@@ -54,20 +54,8 @@ class Parser
     lines.each do |line|
 
       if line.match?(/^-+$/)
-        title = lesson_lines.first
-        verse = lesson_lines[1...-1].join("\n")
-        reference = lesson_lines.last
-        raise "Lesson title is missing." if title.nil? || title.strip.empty?
-
-        raise "Lesson verse is missing." if verse.strip.empty?
-
-        raise "Lesson reference is missing." if reference.nil? || reference.strip.empty?
         quarter.add_lesson(
-          Lesson.new(
-            title,
-            verse,
-            reference
-          )
+          build_lesson(lesson_lines)
         )
 
         lesson_lines.clear
@@ -79,6 +67,25 @@ class Parser
       end
 
     end
+
+  end
+  def build_lesson(lesson_lines)
+
+    title = lesson_lines.first
+    verse = lesson_lines[1...-1].join("\n")
+    reference = lesson_lines.last
+
+    raise "Lesson title is missing." if title.nil? || title.strip.empty?
+
+    raise "Lesson verse is missing." if verse.strip.empty?
+
+    raise "Lesson reference is missing." if reference.nil? || reference.strip.empty?
+
+    Lesson.new(
+      title,
+      verse,
+      reference
+    )
 
   end
   def validate(quarter, found_separator)

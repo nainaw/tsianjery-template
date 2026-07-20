@@ -5,7 +5,18 @@ require_relative "../lib/quarter"
 require_relative "../lib/parser"
 require_relative "../lib/markdown_renderer"
 
+OUTPUT_DIRECTORY = "output"
+def write_output(filename, markdown)
 
+  basename = File.basename(filename, ".tsm")
+
+  output_file = "#{OUTPUT_DIRECTORY}/#{basename}.md"
+
+  File.write(output_file, markdown)
+
+  puts "Published #{output_file}"
+
+end
 
 manuscripts = Dir.glob("manuscripts/*.tsm")
 published = 0
@@ -24,15 +35,9 @@ manuscripts.each do |filename|
 
     markdown = renderer.render(quarter)
 
-    basename = File.basename(filename, ".tsm")
-
-    output_file = "output/#{basename}.md"
-
-    File.write(output_file, markdown)
+    write_output(filename, markdown)
 
     published += 1
-
-    puts "Published #{output_file}"
 
   rescue => error
 

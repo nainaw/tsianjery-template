@@ -116,3 +116,75 @@ Scribe was improved to recover from invalid manuscripts, report the error, and c
 ### Result
 
 TPS can now distinguish between valid and invalid manuscripts while completing a full publishing run.
+
+## TPS 0.12 – Lesson Builder Refactoring
+
+### Achievement
+
+Extracted lesson creation into a dedicated build_lesson method.
+Simplified parse_lessons.
+Improved separation of responsibilities inside the parser.
+
+### Result
+
+The parser is now easier to understand, maintain, and extend without changing its behavior.
+
+## TPS 0.10 – Markdown Rendering
+
+**Date:** July 2026
+
+### Achievement
+
+A dedicated Markdown renderer was introduced.
+
+TPS now converts parsed Quarter and Lesson objects into clean Markdown documents.
+
+### Result
+
+The parser and the rendering process are now separated, making future output formats easier to support.
+
+---
+
+## TPS 0.11 – Multiple Manuscript Publishing
+
+**Date:** July 2026
+
+### Achievement
+
+Scribe now automatically discovers and publishes every `.tsm` manuscript found in the `manuscripts` directory.
+
+The recommended organization is one manuscript per quarter.
+
+### Result
+
+TPS can now publish an entire year's devotional in a single execution.
+
+---
+
+## TPS 0.12 – Validation and Parser Refactoring
+
+**Date:** July 2026
+
+### Achievement
+
+Validation was added for both manuscripts and lessons.
+
+The parser was refactored by introducing dedicated helper methods such as `validate` and `build_lesson`, improving readability and maintainability.
+
+### Result
+
+Invalid manuscripts are detected early, while valid manuscripts continue to be published successfully.
+
+---
+
+## TPS 0.13 – Publishing Improvements
+
+**Date:** July 2026
+
+### Achievement
+
+Publishing output was improved with configurable output directories, helper methods for writing generated files, and a final publishing summary showing successful and failed manuscripts.
+
+### Result
+
+TPS has evolved from a parser prototype into a reliable publishing pipeline capable of processing multiple manuscripts with graceful error handling.
