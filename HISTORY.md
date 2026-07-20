@@ -102,3 +102,17 @@ produces:
 output/
 - 2026-Q1.md
 - 2026-Q2.md
+
+## TPS 0.11 – Manuscript Validation
+
+**Date:** July 2026
+
+### Achievement
+
+The parser now validates manuscripts by requiring at least one lesson.
+
+Scribe was improved to recover from invalid manuscripts, report the error, and continue publishing the remaining manuscripts.
+
+### Result
+
+TPS can now distinguish between valid and invalid manuscripts while completing a full publishing run.

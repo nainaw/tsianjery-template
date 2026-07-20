@@ -10,25 +10,36 @@ class Parser
     lines.reject! { |line| line.strip.empty? }
 
     title = lines.shift
+    raise "Missing manuscript title." if title.nil? || title.strip.empty?
 
     subtitle = []
 
+    found_separator = false
     until lines.empty?
 
       line = lines.shift
 
-      break if line.match?(/^=+$/)
+      if line.match?(/^=+$/)
+        found_separator = true
+        break
+      end
 
       subtitle << line
 
     end
 
+    # raise "Missing header separator." unless found_separator
+
     quarter = Quarter.new(
       title,
       subtitle.join("\n")
     )
-
+    
+    # raise "Missing manuscript subtitle." if quarter.subtitle.strip.empty?
     parse_lessons(lines, quarter)
+
+    # raise "No lessons found." if quarter.lessons.empty?
+    validate(quarter, found_separator)
 
     quarter
 
@@ -46,6 +57,11 @@ class Parser
         title = lesson_lines.first
         verse = lesson_lines[1...-1].join("\n")
         reference = lesson_lines.last
+        raise "Lesson title is missing." if title.nil? || title.strip.empty?
+
+        raise "Lesson verse is missing." if verse.strip.empty?
+
+        raise "Lesson reference is missing." if reference.nil? || reference.strip.empty?
         quarter.add_lesson(
           Lesson.new(
             title,
@@ -63,6 +79,15 @@ class Parser
       end
 
     end
+
+  end
+  def validate(quarter, found_separator)
+
+    raise "Missing manuscript subtitle." if quarter.subtitle.strip.empty?
+
+    raise "Missing header separator." unless found_separator
+
+    raise "No lessons found." if quarter.lessons.empty?
 
   end
 

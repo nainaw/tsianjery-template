@@ -9,28 +9,41 @@ require_relative "../lib/markdown_renderer"
 
 manuscripts = Dir.glob("manuscripts/*.tsm")
 published = 0
+failed = 0
 manuscripts.each do |filename|
 
-  text = File.read(filename)
+  begin
 
-  parser = Parser.new(text)
+    text = File.read(filename)
 
-  quarter = parser.parse
+    parser = Parser.new(text)
 
-  renderer = MarkdownRenderer.new
+    quarter = parser.parse
 
-  markdown = renderer.render(quarter)
+    renderer = MarkdownRenderer.new
 
-  basename = File.basename(filename, ".tsm")
+    markdown = renderer.render(quarter)
 
-  output_file = "output/#{basename}.md"
+    basename = File.basename(filename, ".tsm")
 
-  File.write(output_file, markdown)
+    output_file = "output/#{basename}.md"
 
-  published += 1
+    File.write(output_file, markdown)
 
-  puts "Published #{output_file}"
+    published += 1
+
+    puts "Published #{output_file}"
+
+  rescue => error
+
+    puts "Failed #{filename}"
+    puts error.message
+    failed += 1
+
+  end
 
 end
 puts
-puts "#{published} manuscript(s) published successfully."
+puts "Publishing finished."
+puts "Successful: #{published}"
+puts "Failed: #{failed}"
